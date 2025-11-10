@@ -1,0 +1,129 @@
+
+/* ========= Format Body, Title and Subtitles of the Page ====================*/
+
+
+/*-- scss:defaults --*/
+@import url('https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,100..900;1,100..900&display=swap$');
+
+/*-- scss:rules --*/
+body {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 0;
+  width: 50%;
+
+}
+
+.title {
+  font-family: "Petrona";
+  font-size: 3rem;
+  color: #FA2FBD;
+  font-weight: 500;
+  line-height: 1.1em !important;
+  margin-top: 1em !important;
+}
+
+.subtitle {
+  font-family: "Petrona";
+  color: #235347;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  margin-top: 2em !important;
+  margin-bottom: 2em !important;
+}
+
+.entity-contents {
+  text-align: right !important;
+  padding: 0 3em 0 0;
+}
+
+.about-contents {
+  padding: 0 0 0 2em !important;
+  font-size: 1.2rem;
+  color: #666260;
+}
+
+
+
+
+a {
+  font-family: "Petrona" !important;
+  color: #FA2FBD !important;
+  font-size: 1em;
+  text-transform: none;
+}
+
+
+
+
+/* ---------------------  Responsive Styles Tablet -------------------- */
+
+@media screen and (max-width: 768px) {
+  body {
+    width: 95%;
+    text-align: center !important;
+  }
+
+  .title {
+    font-size: 2.7rem;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: .9rem;
+    text-align: center;
+  }
+
+  .about-image {
+    margin: 1em auto;
+    padding: 0;
+    max-width: 70%;
+    display: block;
+  }
+
+  .entity-contents {
+    text-align: left !important;
+    padding: 0 !important;
+  }
+
+}
+
+/* --------------------  Responsive Styles Mobile ------------------- */
+
+@media screen and (max-width: 480px) {
+
+  body {
+    width: 98%;
+    padding: 0 1%; /* Add small padding on both sides */
+  }
+
+  .about-contents {
+    padding: 0 0.5em !important; /* Reduce left padding */
+  }
+
+  .about-image {
+    margin-top: 0.5em;
+    max-width: 65%;
+  }
+
+}
+
+/* ============= Vertical Spaces for Between Text and/or Images ==============*/
+
+.tiny-space {
+  margin-bottom: 0.5em;
+}
+
+
+.small-space {
+  margin-bottom: 1em;
+}
+
+.medium-space {
+  margin-bottom: 2em;
+}
+
+.large-space {
+  margin-bottom: 3em;
+}

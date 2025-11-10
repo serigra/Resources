@@ -1,0 +1,142 @@
+---
+title: "Resources"
+subtitle: "A collection of useful resources on programming, R, and statistics that I've accumulated over the years. By [Sereina M. Graber](https://serigra.github.io/Webpage_Quarto/)."
+format:
+  html:
+    page-layout: full
+    theme: styles_resources.scss
+    backgroundcolor: "#f8f8f6"
+    include-after-body: 
+      text: |
+        <footer style="text-align: center; padding: 1em 0;">
+          <p>©2025 &middot; Made with <a href="https://www.r-project.org/"> <img src="https://www.r-project.org/Rlogo.png" alt="R" width="25" style="vertical-align: middle;"></a> and <a href="https://quarto.org/"><img src="https://quarto.org/quarto.png" alt="Quarto" width="65" style="vertical-align: middle;"></a>.</p>
+        </footer>
+execute: 
+  eval: true
+  echo: false
+engine: knitr
+---
+
+
+```{r}
+library(reactable)
+library(htmltools)
+```
+
+
+```{r}
+# read in csv file with resources
+d.resources <- read.csv("stats_resources.csv", header = TRUE) 
+
+# Create compact reactable with search and filtering
+reactable(
+  d.resources,
+  searchable = TRUE,
+  filterable = TRUE,
+  defaultPageSize = 15,
+  compact = TRUE,
+  striped = TRUE,
+  highlight = TRUE,
+  bordered = FALSE,
+  resizable = TRUE,
+  
+  # Column definitions for better formatting
+  columns = list(
+    type = colDef(
+      name = "Type",
+      maxWidth = 120,
+      style = list(fontSize = "13px", fontWeight = "500"),
+      filterInput = function(values, name) {
+        tags$select(
+          onchange = sprintf("Reactable.setFilter('%s', '%s', event.target.value)", 
+                           "resources-table", name),
+          tags$option(value = "", "All"),
+          lapply(unique(values), tags$option)
+        )
+      }
+    ),
+    
+    topic = colDef(
+      name = "Topic",
+      maxWidth = 150,
+      style = list(fontSize = "13px"),
+      filterInput = function(values, name) {
+        tags$select(
+          onchange = sprintf("Reactable.setFilter('%s', '%s', event.target.value)", 
+                           "resources-table", name),
+          tags$option(value = "", "All"),
+          lapply(unique(sort(values)), tags$option)
+        )
+      }
+    ),
+    
+    title = colDef(
+      name = "Title",
+      minWidth = 200,
+      style = list(fontSize = "13px", fontWeight = "400")
+    ),
+    
+    link = colDef(
+      name = "Link",
+      minWidth = 100,
+      cell = function(value) {
+        # Create clickable link that opens in new tab
+        tags$a(
+          href = value, 
+          target = "_blank",
+          style = "color: #0066cc; text-decoration: none; font-size: 13px;",
+          "Visit →"
+        )
+      },
+      html = TRUE
+    )
+  ),
+  
+  # Table styling
+  theme = reactableTheme(
+    borderColor = "#dfe2e5",
+    stripedColor = "#f6f8fa",
+    highlightColor = "#f0f5ff",
+    cellPadding = "6px 10px",
+    style = list(
+      fontFamily = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      fontSize = "14px"
+    ),
+    searchInputStyle = list(
+      width = "100%",
+      padding = "6px 10px",
+      fontSize = "13px",
+      border = "1px solid #dfe2e5",
+      borderRadius = "4px"
+    )
+  ),
+  
+  # Table ID for reference
+  elementId = "resources-table",
+  
+  # Summary text
+  defaultColDef = colDef(
+    headerStyle = list(
+      background = "#f6f8fa",
+      fontWeight = "600",
+      fontSize = "13px",
+      borderBottom = "2px solid #dfe2e5"
+    )
+  ),
+  
+  # Show total entries
+  language = reactableLang(
+    searchPlaceholder = "Search resources...",
+    noData = "No resources found",
+    pageInfo = "{rowStart}–{rowEnd} of {rows} resources",
+    pagePrevious = "‹",
+    pageNext = "›"
+  )
+)
+
+```
+
+
+
+
+
