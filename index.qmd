@@ -38,7 +38,7 @@ reactable(
   striped = TRUE,
   highlight = TRUE,
   bordered = FALSE,
-  resizable = TRUE,
+  resizable = TRUE ,
   
   # Column definitions for better formatting
   columns = list(
