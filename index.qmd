@@ -9,7 +9,7 @@ format:
     include-after-body: 
       text: |
         <footer style="text-align: center; padding: 1em 0;">
-          <p>©2025 &middot; Made with <a href="https://www.r-project.org/"> <img src="https://www.r-project.org/Rlogo.png" alt="R" width="25" style="vertical-align: middle;"></a> and <a href="https://quarto.org/"><img src="https://quarto.org/quarto.png" alt="Quarto" width="65" style="vertical-align: middle;"></a>.</p>
+          <p>©2026 &middot; Made with <a href="https://www.r-project.org/"> <img src="https://www.r-project.org/Rlogo.png" alt="R" width="25" style="vertical-align: middle;"></a> and <a href="https://quarto.org/"><img src="https://quarto.org/quarto.png" alt="Quarto" width="65" style="vertical-align: middle;"></a>.</p>
         </footer>
 execute: 
   eval: true
